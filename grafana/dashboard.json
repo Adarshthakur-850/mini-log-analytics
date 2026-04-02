@@ -1,0 +1,33 @@
+{
+  "title": "Mini Log Analytics API Metrics",
+  "uid": "api-metrics",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Total API Requests",
+      "targets": [
+        { "expr": "sum(rate(http_requests_total[1m])) by (endpoint)", "legendFormat": "{{endpoint}}" }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Error Rate (500s)",
+      "targets": [
+        { "expr": "sum(rate(http_errors_total{status_code=\"500\"}[1m]))", "legendFormat": "Errors/sec" }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 }
+    },
+    {
+      "type": "timeseries",
+      "title": "Request Latency (95th Percentile)",
+      "targets": [
+        { "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[1m])) by (le, endpoint))", "legendFormat": "{{endpoint}}" }
+      ],
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 8 }
+    }
+  ],
+  "schemaVersion": 36,
+  "timezone": "browser",
+  "refresh": "5s"
+}
