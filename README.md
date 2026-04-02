@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mini Log Analytics Platform 🚀
 
 This is a production-ready template for a minimal Log and Metrics Analytics Platform. It uses React for the UI to generate application transactions, FastAPI to process and instrument requests with Prometheus metrics, and Grafana to visualize them interactively. 
@@ -58,3 +59,7 @@ kubectl get svc
 ## 🔷 Future Enhancements
 - **Logging Aggregation**: Implementing ELK (ElasticSearch, Logstash, Kibana) stack alongside time-series Prometheus data.
 - **Alerting**: Implementing `Alertmanager` if `http_errors_total` surges above a specific threshold per minute.
+=======
+# mini-log-analytics
+MLOPS project 
+>>>>>>> f9a2c6118ebf2329679647b10379700a83cbc00e
